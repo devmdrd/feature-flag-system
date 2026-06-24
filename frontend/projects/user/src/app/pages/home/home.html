@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Check a Feature Flag</h1>
+      <p>Select your organization to see available features.</p>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label>1. Select your organization</label>
+        <select [value]="selectedOrgId()" (change)="onOrgChange($any($event.target).value)">
+          <option value="">Select organization…</option>
+          @for (org of orgs(); track org.id) {
+            <option [value]="org.id">{{ org.name }}</option>
+          }
+        </select>
+      </div>
+
+      @if (flags().length) {
+        <div class="form-group">
+          <label>2. Select a feature to check</label>
+          <ul class="flag-list">
+            @for (flag of flags(); track flag.id) {
+              <li class="flag-item">
+                <input
+                  type="radio"
+                  name="flag"
+                  [value]="flag.key"
+                  [checked]="selectedKey() === flag.key"
+                  (change)="selectFlag(flag.key)"
+                />
+                <span>{{ flag.key }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+        <button
+          class="btn-primary"
+          [disabled]="!selectedKey()"
+          (click)="checkFlag()"
+        >
+          Check
+        </button>
+      }
+
+      @if (selectedOrgId() && !flags().length) {
+        <p class="empty">No feature flags found for this organization.</p>
+      }
+
+      @if (result(); as r) {
+        <div
+          class="result"
+          [class.enabled]="r.enabled"
+          [class.disabled]="!r.enabled"
+        >
+          <div class="icon">{{ r.enabled ? "✅" : "🚫" }}</div>
+          <div class="title">
+            {{ r.enabled ? "Feature Enabled" : "Feature Disabled" }}
+          </div>
+          <div class="msg">
+            <code>{{ r.key }}</code> is
+            <strong>{{ r.enabled ? "enabled" : "disabled" }}</strong>
+            for your organization.
+          </div>
+        </div>
+      }
+
+      @if (error()) {
+        <div class="alert error">{{ error() }}</div>
+      }
+    </div>
+  </div>
+</div>

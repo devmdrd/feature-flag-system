@@ -1,0 +1,49 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  color: var(--accent);
+  padding: 0 1.5rem;
+  height: 48px;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.app-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.role-badge {
+  font-size: 0.65rem;
+  font-weight: 500;
+  background: var(--white);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
+  padding: 0.1rem 0.45rem;
+  letter-spacing: 0.04em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 0.75rem;
+  color: rgba(var(--accent-rgb), 0.55);
+}

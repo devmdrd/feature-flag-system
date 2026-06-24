@@ -1,0 +1,130 @@
+.container {
+  width: 100%;
+  max-width: 760px;
+  padding: 0 1rem;
+  align-self: flex-start;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid rgba(var(--accent-rgb), 0.2);
+  margin-bottom: 1rem;
+}
+
+.card-header {
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.2);
+  padding: 0.65rem 1rem;
+  h1 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+}
+
+.orgs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.no-pad {
+  padding: 0;
+}
+
+.create-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input[type="text"] {
+  flex: 1;
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  padding: 0.45rem 0.65rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  background: var(--white);
+  color: var(--accent);
+  outline: none;
+  &:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
+  }
+}
+
+.btn-primary {
+  padding: 0.45rem 1rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background: var(--accent);
+  color: var(--white);
+  transition: opacity 0.15s;
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.btn-outline {
+  padding: 0.25rem 0.65rem;
+  font-family: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--accent);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  transition: opacity 0.15s;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.alert {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  &.error {
+    color: var(--danger);
+    border: 1px solid rgba(var(--danger-rgb), 0.4);
+  }
+  &.success {
+    color: var(--accent);
+    border: 1px solid rgba(var(--accent-rgb), 0.4);
+  }
+}
+
+.empty {
+  text-align: center;
+  color: rgba(var(--accent-rgb), 0.5);
+  padding: 2rem;
+  font-size: 0.8rem;
+}
+
+.org-list {
+  list-style: none;
+}
+
+.org-item {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(var(--accent-rgb), 0.1);
+  &:last-child {
+    border: none;
+  }
+  .org-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .org-id {
+    font-size: 0.75rem;
+    color: rgba(var(--accent-rgb), 0.55);
+    margin-top: 0.1rem;
+  }
+}

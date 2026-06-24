@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="card create-card">
+    <div class="card-header"><h1>Create Feature Flag</h1></div>
+    <div class="card-body">
+      <div class="create-row">
+        <input
+          type="text"
+          [(ngModel)]="newKey"
+          placeholder="Flag key e.g. dark_mode"
+          (keydown.enter)="createFlag()"
+        />
+<button class="btn-primary" (click)="createFlag()">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header flags-header">
+      <h1>Feature Flags</h1>
+      <button class="btn-outline" (click)="loadFlags()" [disabled]="loading()">
+        Refresh
+      </button>
+    </div>
+    @if (loading()) {
+      <p class="empty">Loading…</p>
+    } @else if (!flags().length) {
+      <p class="empty">No flags yet.</p>
+    } @else {
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Status</th>
+            <th>Created</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (flag of flags(); track flag.id) {
+            <tr>
+              <td><code>{{ flag.key }}</code></td>
+              <td>
+                <span
+                  class="badge"
+                  [class.enabled]="flag.enabled"
+                  [class.disabled]="!flag.enabled"
+                  >{{ flag.enabled ? "Enabled" : "Disabled" }}</span
+                >
+              </td>
+              <td class="muted">{{ flag.createdAt | date: "mediumDate" }}</td>
+              <td>
+                <div class="actions">
+                  <button class="action-btn toggle" (click)="toggleFlag(flag)">
+                    {{ flag.enabled ? "Disable" : "Enable" }}
+                  </button>
+                  <button class="action-btn delete" (click)="deleteFlag(flag)">
+                    Delete
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+</div>

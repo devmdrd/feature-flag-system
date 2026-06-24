@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --white: #ffffff;
+  --accent: #6e40c9;
+  --accent-rgb: 110, 64, 201;
+  --danger: #cf222e;
+  --danger-rgb: 207, 34, 46;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  background: var(--white);
+  color: var(--accent);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+main > *:not(router-outlet) {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

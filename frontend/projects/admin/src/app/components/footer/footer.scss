@@ -1,0 +1,23 @@
+footer {
+  background: var(--white);
+  border-top: 1px solid rgba(var(--accent-rgb), 0.2);
+  padding: 0.85rem 1.5rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  color: rgba(var(--accent-rgb), 0.55);
+}
+
+.footer-brand {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.footer-sep {
+  color: rgba(var(--accent-rgb), 0.3);
+}

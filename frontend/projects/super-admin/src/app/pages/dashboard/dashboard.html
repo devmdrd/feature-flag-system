@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header"><h1>Create Organization</h1></div>
+    <div class="card-body">
+      <div class="create-row">
+        <input
+          type="text"
+          [(ngModel)]="newOrgName"
+          placeholder="Organization name"
+          (keydown.enter)="createOrg()"
+        />
+        <button class="btn-primary" (click)="createOrg()">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header orgs-header">
+      <h1>Organizations</h1>
+      <button class="btn-outline" (click)="loadOrgs()" [disabled]="loading()">
+        Refresh
+      </button>
+    </div>
+    <div class="card-body no-pad">
+      @if (loading()) {
+        <p class="empty">Loading…</p>
+      } @else if (!orgs().length) {
+        <p class="empty">No organizations yet.</p>
+      } @else {
+        <ul class="org-list">
+          @for (org of orgs(); track org.id) {
+            <li class="org-item">
+              <div class="org-name">{{ org.name }}</div>
+              <div class="org-id">{{ org.createdAt | date: "mediumDate" }}</div>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+</div>

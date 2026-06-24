@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1>Org Admin Login</h1>
+      <p>Sign in to manage feature flags</p>
+    </div>
+    <div class="card-body">
+<div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          placeholder="admin@example.com"
+        />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          (keydown.enter)="login()"
+          placeholder="••••••••"
+        />
+      </div>
+      <button class="btn-primary" (click)="login()">Sign In</button>
+      <p class="form-footer">
+        No account? <a routerLink="/signup" class="link-btn">Sign up</a>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<nav>
+  <div class="brand">
+    <span class="logo">⚑</span>
+    <span class="app-name">FeatureFlags</span>
+    <span class="role-badge">super admin</span>
+  </div>
+  <div class="nav-right">
+    <span class="title">{{ title }}</span>
+    @if (showLogout) {
+      <button class="logout-btn" (click)="logout.emit()">
+        <span>⏻</span> Logout
+      </button>
+    }
+  </div>
+</nav>

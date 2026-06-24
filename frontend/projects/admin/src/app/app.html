@@ -1,0 +1,10 @@
+<app-header
+  title="Org Admin"
+  [showLogout]="auth.isValid('oa_token')"
+  (logout)="logout()"
+/>
+<main>
+  <router-outlet />
+</main>
+<app-footer />
+<app-toast />

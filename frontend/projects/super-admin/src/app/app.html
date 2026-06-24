@@ -1,0 +1,10 @@
+<app-header
+  title="Super Admin"
+  [showLogout]="auth.isValid('sa_token')"
+  (logout)="logout()"
+/>
+<main>
+  <router-outlet />
+</main>
+<app-footer />
+<app-toast />
